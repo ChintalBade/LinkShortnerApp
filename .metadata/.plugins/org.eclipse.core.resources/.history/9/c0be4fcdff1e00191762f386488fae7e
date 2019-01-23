@@ -1,0 +1,32 @@
+package com.cabonline.linkshortner.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cabonline.linkshortner.service.LinkShortnerService;
+
+@Controller
+public class LinkShortnerController {
+
+	@Autowired
+	private LinkShortnerService linkShortnerService;
+	
+	@RequestMapping("/")
+	public String healthCheck() {
+		return "OK";
+	}
+	
+	@RequestMapping("/linkShortner/getShortLink")
+	public String getShortLink(String longLink) {
+		
+		return linkShortnerService.getShortLink(longLink);
+	}
+	
+	@RequestMapping("/linkShortner/connectToLink")
+	public void connect(String link) {
+		
+		linkShortnerService.connect(link);
+	}
+	
+}

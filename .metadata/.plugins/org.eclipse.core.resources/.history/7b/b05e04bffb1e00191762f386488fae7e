@@ -1,0 +1,9 @@
+package com.cabonline.linkshortner.service;
+
+public interface LinkShortnerServcie {
+	
+	public String getShortLink(String longLink);
+	
+	public void connect(String shortLink);
+
+}

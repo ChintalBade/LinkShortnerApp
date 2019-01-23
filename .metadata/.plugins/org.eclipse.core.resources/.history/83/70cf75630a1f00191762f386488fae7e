@@ -1,0 +1,43 @@
+package com.cabonline.linkshortner.service;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.view.RedirectView;
+
+@Service
+public class LinkShortnerServiceImpl implements LinkShortnerService {
+	
+	private Map<String, String> linkStore = new HashMap<>();
+
+	@Override
+	public String getShortLink(String longLink) {
+	
+		String shortLink = "";
+		try {
+		 URL netUrl = new URL(longLink);
+		 String host = netUrl.getHost();
+		 String path = netUrl.getPath();
+		 shortLink = netUrl.getProtocol()+"://"+host+"/"+path.hashCode(); 
+		}catch(MalformedURLException ex) {
+			
+			System.out.println("URL is malformed");
+		}
+		
+		
+		return shortLink;
+	}
+
+	@Override
+	public void connect(String link) {
+		// TODO Auto-generated method stub
+		
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://" + link);
+       // return redirectView;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.cabonline.linkshortner.model;
+
+public class ShortenLink {
+
+}

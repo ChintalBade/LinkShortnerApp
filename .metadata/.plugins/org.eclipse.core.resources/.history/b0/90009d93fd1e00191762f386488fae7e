@@ -1,0 +1,22 @@
+package com.cabonline.linkshortner.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class LinkShortnerServiceImpl implements LinkShortnerService {
+
+	@Override
+	public String getShortLink(String longLink) {
+		// TODO Auto-generated method stub
+		
+		
+		return null;
+	}
+
+	@Override
+	public void connect(String link) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

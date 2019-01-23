@@ -1,0 +1,8 @@
+package com.cabonline.linkshortner.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class LinkShortnerController {
+
+}

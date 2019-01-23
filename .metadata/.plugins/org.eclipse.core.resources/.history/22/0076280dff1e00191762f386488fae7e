@@ -1,0 +1,36 @@
+package com.cabonline.linkshortner.service;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.view.RedirectView;
+
+@Service
+public class LinkShortnerServiceImpl implements LinkShortnerService {
+
+	@Override
+	public String getShortLink(String longLink) {
+		// TODO Auto-generated method stub
+		longLink = "https://stackoverflow.com/questions/9607903/get-domain-name-from-given-url";
+		try {
+		 URL netUrl = new URL(longLink);
+		 String host = netUrl.getHost();
+		 System.out.println("host-->"+host);
+		}catch(MalformedURLException ex) {
+			
+		}
+		
+		return null;
+	}
+
+	@Override
+	public RedirectView connect(String link) {
+		// TODO Auto-generated method stub
+		
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://" + link);
+        return redirectView;
+	}
+
+}
